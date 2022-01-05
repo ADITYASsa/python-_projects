@@ -1,0 +1,32 @@
+from time import *
+import random as r
+
+def mistake(para,user):
+    error=0
+    for i in range(len(para)):
+         try:
+             if para[i] != user[i]:
+                 error = error+1
+         except:
+            error=error+1
+    return error
+    
+def speed_time(time_start,time_end,userinput):
+    time_delay= time_end - time_start
+    time_R = round(time_delay,2)
+    speed = len(userinput)/ time_R
+    return round(speed)
+
+test=["When it comes to writers' block, often the most difficult part is simply beginning to put words to paper. One way that can often help is to write about something completely different from what you're having the writers' block about.", "his is where a random paragraph can be quite helpful. By using this tool you can begin to chip away at the writers' block by simply adding to the random paragraph that appears with the knowledge that it's going to be completely different from any writing you've been doing.", "Then once you begin to put words on the paper, it should be easier to transition into the writing that needs to get done.", "or those who are looking for a difficult writing challenge, the random paragraph generator can provide that as well."]
+
+test1=r.choice(test)
+print("------typing speed application------")
+print(test1)
+print()
+print()
+time_1 = time()
+testinput = input("Enter the above mentioned test:")
+time_2 = time()
+
+print('Speed : ',speed_time(time_1,time_2,testinput),"w/sec")
+print('Error : ',mistake(test1,testinput))
